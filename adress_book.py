@@ -1,9 +1,4 @@
 from collections import UserDict
-from collections import UserDict
-
-# All my classes
-
-
 class Field:
     pass
 
