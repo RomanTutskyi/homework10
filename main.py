@@ -11,7 +11,7 @@ def input_error(func):
         except (ValueError, IndexError, UnboundLocalError):
             return False
         except KeyError:
-            return False
+            return func(*args, **kwargs)
     return wrapper
 
 
@@ -53,7 +53,7 @@ def show_person(string):
 def remove(string):
     string = string.split()
     name, phone = string[0], string[1]
-    if adress_book.in_data(name) != True:
+    if adress_book.in_data(name) is not True:
         return False
 
     for i in adress_book.data[name].phones:

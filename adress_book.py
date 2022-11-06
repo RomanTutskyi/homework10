@@ -30,11 +30,14 @@ class Record(Field):
     def __init__(self, in_name, in_phone=None):
         self.name = Name(in_name)
         self.phones = []
-        if in_phone != None:
+        if in_phone is not None:
             self.phones.append(Phone(in_phone))
 
     def add_phone(self, phone=None):
-        self.phones.append(Phone(phone))
+        if phone is not None:
+            self.phones.append(Phone(phone))
+        else:
+            pass
 
     def change(self, old_note, new_note):
         for old in self.phones:
