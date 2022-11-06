@@ -33,18 +33,16 @@ class Record(Field):
         if in_phone is not None:
             self.phones.append(Phone(in_phone))
 
-    def add_phone(self, phone=None):
-        if phone is not None:
-            self.phones.append(Phone(phone))
-        else:
-            pass
+    def add_phone(self, phone):
+        self.phones.append(Phone(phone))
+        
 
     def change(self, old_note, new_note):
         for old in self.phones:
             if old.value == old_note:
                 self.phones.remove(old)
                 self.phones.append(Phone(new_note))
-
+                self.add_phone(new_note)
     def remove_phone(self, phone):
         for old in self.phones:
             if old.value == phone:

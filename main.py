@@ -11,7 +11,7 @@ def input_error(func):
         except (ValueError, IndexError, UnboundLocalError):
             return False
         except KeyError:
-            return func(*args, **kwargs)
+            return False
     return wrapper
 
 
