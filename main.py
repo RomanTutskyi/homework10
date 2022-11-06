@@ -26,7 +26,7 @@ def add_contact(string):
 @input_error
 def add_phone(string):
     string = string.split()
-    adress_book[string[0]].phones.append(Phone(string[1]))
+    string.add_phone(string[0], string[1])
     return True
 
 
